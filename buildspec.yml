@@ -1,0 +1,21 @@
+version: 0.1
+
+phases:
+    install:
+        commands:
+            - echo installing nodejs...
+            - curl -sl https://deb.nodesource.com/setup_12.x | bash -
+            - apt-get install -y nodejs
+            - apt install --no-install-recommends yarn
+    pre_build:
+        commands:
+            - echo installing dependencies...
+            - npm install
+    build:
+        commands:
+            - echo building...
+artifacts:
+    files:
+        - "**/*"
+    discard-paths: no
+
